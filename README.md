@@ -1,11 +1,11 @@
 
 
-Script is heavily modified version of asuseroakos script found from here: [http:tinyurl.com/arma3glovepiebasic](http:tinyurl.com/arma3glovepiebasic)
+Script is heavily modified version of asuseroakos script found from here: [http:tinyurl.com/arma3glovepiebasic](http:tinyurl.com/arma3glovepiebasic)<br />
 Most important change is in the if condition structure that allows much smaller file size.
 Original script has almost the same functionality and is bigger by almost 3000 rows.
 
-__Happy killings!__
-__-Kiiski__
+_Happy killings!
+-Kiiski_
 
 #ALL AVAILABLE COMMANDS
 
