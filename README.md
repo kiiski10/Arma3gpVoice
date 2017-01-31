@@ -1,4 +1,4 @@
-##Arma3 voice commands
+##Arma3 voice commands##
 
 Script is heavily modified version of asuseroakos script found from here: [http:tinyurl.com/arma3glovepiebasic](http:tinyurl.com/arma3glovepiebasic)<br />
 Most important change is in the if condition structure that allows much smaller file size.
