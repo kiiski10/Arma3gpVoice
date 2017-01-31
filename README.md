@@ -1,8 +1,6 @@
 # Arma3gpVoice
 GlovePie voice commands for Arma3
 
-
-
 //
 //
 //     Script is heavily modified version of asuseroakos script found from here: http://tinyurl.com/arma3glovepiebasic
