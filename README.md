@@ -1,4 +1,4 @@
-##Arma3 voice commands##
+#Arma3 voice commands#
 
 Script is heavily modified version of asuseroakos script found from here: [http:tinyurl.com/arma3glovepiebasic](http:tinyurl.com/arma3glovepiebasic)<br />
 Most important change is in the if condition structure that allows much smaller file size.
@@ -7,20 +7,20 @@ Original script has almost the same functionality and is bigger by almost 3000 r
 _Happy killings!_
 _-Kiiski_
 
-#Unit selection:
+###Unit selection:
 
     "<number>" or "man <number>"            Select soldier <number 1-10>
     "all" or "everybody"                Select all soldiers
 
-#Team assignment commands:
+###Team assignment commands:
 
     "to team <color>" or "you are team <color>"    Assign selected soldiers to team <red, green, blue, yellow or white>
 
-#Team selection:
+###Team selection:
 
     "team <color>"                    Select team by <color>
 
-#Movement commands:
+###Movement commands:
 
     "return to formation" or "fall back"
     "advance"
@@ -32,12 +32,12 @@ _-Kiiski_
     "next waypoint"
     "move there"
 
-#Target commands:
+###Target commands:
 
     "no target" or "cancel target"
     "thats your target" or "shoot that"
 
-#Engage commands:
+###Engage commands:
 
     "open fire" or "weapons free"
     "hold fire"
@@ -49,11 +49,11 @@ _-Kiiski_
     "watch <direction>"                   available directions: <north, north east, east> etc.
     "suppressive fire"
 
-#Mount commands:
+###Mount commands:
 
     "Get out" or "dismount"
 
-#Status commands:
+###Status commands:
 
     "fuel low" or "low fuel"
     "ammo low" or "low ammo"
@@ -62,7 +62,7 @@ _-Kiiski_
     "under fire" or "taking fire"
     "sit down"
 
-#Combat commands:
+###Combat commands:
 
     "stealth" or "silent"
     "danger" or "get ready" or "get set to engage"
@@ -73,7 +73,7 @@ _-Kiiski_
     "go prone" or "hit the dirt" or "get down"
     "copy my stance" or "copy stance"
 
-#Formation commands:
+###Formation commands:
 
     "formation column" or "form column"
     "formation staggered column" or "form staggered column"
