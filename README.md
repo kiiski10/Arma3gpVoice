@@ -1,5 +1,4 @@
 <br />
-<br />
      Script is heavily modified version of asuseroakos script found from here: http:tinyurl.com/arma3glovepiebasic<br />
      Most important change is in the if condition structure that allows much smaller file size.<br />
      Original script has almost the same functionality and is bigger by almost 3000 rows.<br />
@@ -7,23 +6,23 @@
                                                                                           Happy killings!<br />
                                                                                                       -Kiiski<br />
 <br />
-/ ALL AVAILABLE COMMANDS  <br />
+#ALL AVAILABLE COMMANDS  <br />
                                          <br />
                                          <br />
- Unit selection:                         <br />
+ #Unit selection:                         <br />
                                          <br />
     "<number>" or "man <number>"            Select soldier <number 1-10>                            <br />
     "all" or "everybody"                Select all soldiers  <br />
                                          <br />
- Team assignment commands:               <br />
+ #Team assignment commands:               <br />
                                          <br />
     "to team <color>" or "you are team <color>"    Assign selected soldiers to team <red, green, blue, yellow or white> <br />
                                          <br />
- Team selection:                         <br />
+ #Team selection:                         <br />
                                          <br />
     "team <color>"                    Select team by <color> <br />
                                          <br />
- Movement commands:                      <br />
+ #Movement commands:                      <br />
                                          <br />
     "return to formation" or "fall back" <br />
     "advance"                            <br />
@@ -35,12 +34,12 @@
     "next waypoint"                      <br />
     "move there"                         <br />
                                          <br />
- Target commands:                        <br />
+ #Target commands:                        <br />
                                          <br />
     "no target" or "cancel target"       <br />
     "thats your target" or "shoot that"  <br />
                                          <br />
- Engage commands:                        <br />
+ #Engage commands:                        <br />
                                          <br />
     "open fire" or "weapons free"        <br />
     "hold fire"                          <br />
@@ -52,7 +51,7 @@
     "watch <direction>"                   available directions: <north, north east, east> etc.      <br />
     "suppressive fire"                   <br />
                                          <br />
- Mount commands:                         <br />
+ #Mount commands:                         <br />
                                          <br />
     "Get out" or "dismount"              <br />
                                          <br />
@@ -100,4 +99,3 @@
               exit GlovePIE.                         <br />
               <br />
               <br />
-/
