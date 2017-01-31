@@ -1,0 +1,738 @@
+//
+//
+//     Script is heavily modified version of asuseroakos script found from here: http://tinyurl.com/arma3glovepiebasic
+//     Most important change is in the if condition structure that allows much smaller file size.
+//     Original script has almost the same functionality and is bigger by almost 3000 rows.
+//
+//                                                                                          Happy killings!
+//                                                                                                      -Kiiski
+//
+///////////////////////////////////////// ALL AVAILABLE COMMANDS  //////////////////////////////////////////////////////////////////
+//                                                                                                                                //
+//                                                                                                                                //
+// Unit selection:                                                                                                                //
+//                                                                                                                                //
+//    "<number>" or "man <number>"            Select soldier <number 1-10>                                                        //
+//    "all" or "everybody"                Select all soldiers                                                                     //
+//                                                                                                                                //
+// Team assignment commands:                                                                                                      //
+//                                                                                                                                //
+//    "to team <color>" or "you are team <color>"    Assign selected soldiers to team <red, green, blue, yellow or white>         //
+//                                                                                                                                //
+// Team selection:                                                                                                                //
+//                                                                                                                                //
+//    "team <color>"                    Select team by <color>                                                                    //
+//                                                                                                                                //
+// Movement commands:                                                                                                             //
+//                                                                                                                                //
+//    "return to formation" or "fall back"                                                                                        //
+//    "advance"                                                                                                                   //
+//    "stay back"                                                                                                                 //
+//    "flank <left or right>"                                                                                                     //
+//    "stop" or "halt"                                                                                                            //
+//    "wait for me"                                                                                                               //
+//    "find cover"                                                                                                                //
+//    "next waypoint"                                                                                                             //
+//    "move there"                                                                                                                //
+//                                                                                                                                //
+// Target commands:                                                                                                               //
+//                                                                                                                                //
+//    "no target" or "cancel target"                                                                                              //
+//    "thats your target" or "shoot that"                                                                                         //
+//                                                                                                                                //
+// Engage commands:                                                                                                               //
+//                                                                                                                                //
+//    "open fire" or "weapons free"                                                                                               //
+//    "hold fire"                                                                                                                 //
+//    "fire"                                                                                                                      //
+//    "engage"                                                                                                                    //
+//    "engage at will"                                                                                                            //
+//    "disengage"                                                                                                                 //
+//    "scan horizon"                                                                                                              //
+//    "watch <direction>"                   available directions: <north, north east, east> etc.                                  //
+//    "suppressive fire"                                                                                                          //
+//                                                                                                                                //
+// Mount commands:                                                                                                                //
+//                                                                                                                                //
+//    "Get out" or "dismount"                                                                                                     //
+//                                                                                                                                //
+// Status commands:                                                                                                               //
+//                                                                                                                                //
+//    "fuel low" or "low fuel"                                                                                                    //
+//    "ammo low" or "low ammo"                                                                                                    //
+//    "injured" or "need medic"                                                                                                   //
+//    "report status"                                                                                                             //
+//    "under fire" or "taking fire"                                                                                               //
+//    "sit down"                                                                                                                  //
+//                                                                                                                                //
+// Combat commands:                                                                                                               //
+//                                                                                                                                //
+//    "stealth" or "silent"                                                                                                       //
+//    "danger" or "get ready" or "get set to engage"                                                                              //
+//    "stay frosty" or "stay sharp"                                                                                               //
+//    "safe" or "at ease" or "relax"                                                                                              //
+//    "stand up" or "on your feet"                                                                                                //
+//    "stay crouched" or "stay low"                                                                                               //
+//    "go prone" or "hit the dirt" or "get down"                                                                                  //
+//    "copy my stance" or "copy stance"                                                                                           //
+//                                                                                                                                //
+// Formation commands:                                                                                                            //
+//                                                                                                                                //
+//    "formation column" or "form column"                                                                                         //
+//    "formation staggered column" or "form staggered column"                                                                     //
+//    "formation wedge" or "form wedge"                                                                                           //
+//    "formation echelon left" or "form echeleon left"                                                                            //
+//    "formation echelon right" or "form echelon right"                                                                           //
+//    "formation V" or "form V"                                                                                                   //
+//    "formation line" or "form line"                                                                                             //
+//    "formation compact column" or "form compact column"                                                                         //
+//    "formation diamond" or "form diamond"                                                                                       //
+//                                                                                                                                //
+//                                                                                                                                //
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                         //
+//                                                                         //
+//    HOW TO USE:                                                          //
+//                                                                         //
+//        1)    Hit 'Run' button or press F9 button in GlovePie.           //
+//                                                                         //
+//        2)    To terminate, click the 'Stop' button of GlovePIE then     //
+//              exit GlovePIE.                                             //
+//                                                                         //
+//                                                                         //
+/////////////////////////////////////////////////////////////////////////////
+
+
+//    ----------- Script begin -----------------
+
+    //-- Begin PLAYER Controls
+        if said("no no no",6) or said("Cancel",6) then
+            press(key.Backspace)
+            release(key.Backspace)
+        end if
+    //-- End PLAYER Controls
+
+
+
+        //-- Begin Unit Selection
+        if said("one",6) or said("man one",6) then
+            press(key.F1)
+            release(key.F1)
+            playsound("kiiski/sounds/click.wav")
+        end if
+
+        if said("two",6) or said("2",6) or said("man two",6) then
+            press(key.F2)
+            release(key.F2)
+            playsound("kiiski/sounds/click.wav")
+        end if
+
+        if said("three",6) or said("man three",6) then
+            press(key.F3)
+            release(key.F3)
+            playsound("kiiski/sounds/click.wav")
+        end if
+
+        if said("man four",6) or said("four",6) then
+            press(key.F4)
+            release(key.F4)
+            playsound("kiiski/sounds/click.wav")
+        end if
+
+        if said("five",6) or said("man five",6) then
+            press(key.F5)
+            release(key.F5)
+            playsound("kiiski/sounds/click.wav")
+        end if
+
+        if said("six",6) or said("man six",6) then
+            press(key.F6)
+            release(key.F6)
+            playsound("kiiski/sounds/click.wav")
+        end if
+
+        if said("seven",6) or said("man seven",6) then
+            press(key.F7)
+            release(key.F7)
+            playsound("kiiski/sounds/click.wav")
+        end if
+
+        if said("eight",6) or said("man eight",6) then
+            press(key.F8)
+            release(key.F8)
+            playsound("kiiski/sounds/click.wav")
+        end if
+
+        if said("nine",6) or said("man nine",6) then
+            press(key.F9)
+            release(key.F9)
+            playsound("kiiski/sounds/click.wav")
+        end if
+
+        if said("ten",6) or said("man ten",6) then
+            press(key.F10)
+            release(key.F10)
+            playsound("kiiski/sounds/click.wav")
+        end if
+
+        if said("all",6) or said("everybody",6) then
+            press(key.Console)
+            release(key.Console)
+            playsound("kiiski/sounds/click.wav")
+        end if
+    //-- End Unit selection
+
+
+    //--Begin Calling your Teams commands
+        if said("team red",6) then
+            press(key.LeftShift)
+            press(key.F1)
+            wait 50 ms
+            release(key.LeftShift)
+            release(key.F1)
+            playsound("kiiski/sounds/click.wav")
+        end if
+
+        if said("team green",6) then
+            press(key.LeftShift)
+            press(key.F2)
+            wait 50 ms
+            release(key.LeftShift)
+            release(key.F2)
+            playsound("kiiski/sounds/click.wav")
+        end if
+
+        if said("team blue",6) then
+            press(key.LeftShift)
+            press(key.F3)
+            wait 50 ms
+            release(key.LeftShift)
+            release(key.F3)
+            playsound("kiiski/sounds/click.wav")
+        end if
+
+        if said("team yellow",6) then
+            press(key.LeftShift)
+            press(key.F4)
+            wait 50 ms
+            release(key.LeftShift)
+            release(key.F4)
+            playsound("kiiski/sounds/click.wav")
+        end if
+
+        if said("team white",6) then
+            press(key.LeftShift)
+            press(key.F5)
+            wait 50 ms
+            release(key.LeftShift)
+            release(key.F5)
+            playsound("kiiski/sounds/click.wav")
+        end if
+    //--End Calling your Teams commands
+
+    //--Begin TEAM ASSIGNMENT commands
+        if said("to team red",6) or said("you are team red",6) then
+            press(key.Nine)
+            release(key.Nine)
+            wait 50 ms
+            press(key.One)
+            release(key.One)
+        end if
+
+        if said("to team green",6) or said("you are team green",6) then
+            press(key.Nine)
+            release(key.Nine)
+            wait 50 ms
+            press(key.Two)
+            release(key.Two)
+        end if
+
+        if said("to team blue",6) or said("you are team blue",6) then
+            press(key.Nine)
+            release(key.Nine)
+            wait 50 ms
+            press(key.Three)
+            release(key.Three)
+        end if
+
+        if said("to team yellow",6) or said("you are team yellow",6) then
+            press(key.Nine)
+            release(key.Nine)
+            wait 50 ms
+            press(key.Four)
+            release(key.Four)
+        end if
+
+        if said("to team white",6) or said("you are team white",6) then
+            press(key.Nine)
+            release(key.Nine)
+            wait 50 ms
+            press(key.Five)
+            release(key.Five)
+        end if
+    //--End TEAM ASSIGNMENT commands
+
+    //-- Begin MOVE menu commands
+        if said("return to formation",6) or said("fall back",6) then
+            press(key.One)
+            release(key.One)
+            wait 50 ms
+            press(key.One)
+            release(key.One)
+        end if
+
+        if said("advance",6) then
+            press(key.One)
+            release(key.One)
+            wait 50 ms
+            press(key.Two)
+            release(key.Two)
+        end if
+
+        if said("stay back",6) then
+            press(key.One)
+            release(key.One)
+            wait 50 ms
+            press(key.Two)
+            release(key.Two)
+        end if
+
+        if said("flank left",6) then
+            press(key.One)
+            release(key.One)
+            wait 50 ms
+            press(key.Four)
+            release(key.Four)
+        end if
+
+        if said("flank right",6) then
+            press(key.One)
+            release(key.One)
+            wait 50 ms
+            press(key.Five)
+            release(key.Five)
+        end if
+
+        if said("stop",6) or said("halt",6) then
+            press(key.One)
+            release(key.One)
+            wait 50 ms
+            press(key.Six)
+            release(key.Six)
+        end if
+
+        if said("wait for me",6) then
+            press(key.One)
+            release(key.One)
+            wait 50 ms
+            press(key.Seven)
+            release(key.Seven)
+        end if
+
+        if said("find cover",6) then
+            press(key.One)
+            release(key.One)
+            wait 50 ms
+            press(key.Eight)
+            release(key.Eight)
+        end if
+
+        if said("next way point",6) then
+            press(key.One)
+            release(key.One)
+            wait 50 ms
+            press(key.Nine)
+            release(key.Nine)
+        end if
+
+        if said("move there",6) then
+            press(key.Space)
+            release(key.Space)
+        end if
+    //--End MOVE menu commands
+
+
+    //--Begin TARGET commands
+        if said("no target",6) or said("cancel target",6) then
+            press(key.Two)
+            release(key.Two)
+            wait 50 ms
+            press(key.One)
+            release(key.One)
+        end if
+    //--End unit/s TARGET commands
+
+
+    //--Begin ENGAGE menu commands
+        if said("open fire",6) or said("weapons free",6) then
+            press(key.Three)
+            release(key.Three)
+            wait 50 ms
+            press(key.One)
+            release(key.One)
+        end if
+
+        if said("hold fire",6) then
+            press(key.Three)
+            release(key.Three)
+            wait 50 ms
+            press(key.Two)
+            release(key.Two)
+        end if
+
+        if said("fire",6) then
+            press(key.Three)
+            release(key.Three)
+            wait 50 ms
+            press(key.Three)
+            release(key.Three)
+        end if
+
+        if said("engage",6) then
+            press(key.Three)
+            release(key.Three)
+            wait 50 ms
+            press(key.Four)
+            release(key.Four)
+        end if
+
+        if said("engage at will",6) then
+            press(key.Three)
+            release(key.Three)
+            wait 50 ms
+            press(key.Five)
+            release(key.Five)
+        end if
+
+        if said("disengage",6) then
+            press(key.Three)
+            release(key.Three)
+            wait 50 ms
+            press(key.Six)
+            release(key.Six)
+        end if
+
+        if said("scan horizon",6) then
+            press(key.Three)
+            release(key.Three)
+            wait 50 ms
+            press(key.Seven)
+            release(key.Seven)
+        end if
+
+        if said("watch direction",6) then
+            press(key.Three)
+            release(key.Three)
+            wait 50 ms
+            press(key.Eight)
+            release(key.Eight)
+        end if
+
+        if said("suppressive fire",6) then
+            press(key.Three)
+            release(key.Three)
+            wait 50 ms
+            press(key.Nine)
+            release(key.Nine)
+        end if
+    //--End ENGAGE menu commands
+
+
+    //--Begin MOUNT menu commands
+        if said("get out",6) or said("dismount",6) then
+            press(key.Four)
+            release(key.Four)
+            wait 50 ms
+            press(key.One)
+            release(key.One)
+        end if
+        //--Begin MOUNT menu commands
+
+
+        //--Begin STATUS menu commands
+        if said("fuel low",6) or said("low fuel",6) then
+            press(key.Five)
+            release(key.Five)
+            wait 50 ms
+            press(key.Two)
+            release(key.Two)
+        end if
+
+        if said("ammo low",6) or said("low ammo",6) then
+            press(key.Five)
+            release(key.Five)
+            wait 50 ms
+            press(key.Three)
+            release(key.Three)
+        end if
+
+        if said("injured",6) or said("need medic",6) then
+            press(key.Five)
+            release(key.Five)
+            wait 50 ms
+            press(key.Four)
+            release(key.Four)
+        end if
+
+        if said("report status",6) then
+            press(key.Five)
+            release(key.Five)
+            wait 50 ms
+            press(key.Five)
+            release(key.Five)
+        end if
+
+        if said("under fire",6) or said("taking fire",6) then
+            press(key.Five)
+            release(key.Five)
+            wait 50 ms
+            press(key.Six)
+            release(key.Six)
+        end if
+    //--End STATUS menu commands
+
+
+    //--Begin ACTION menu commands
+        if said("sit down",6) then
+            press(key.Six)
+            release(key.Six)
+            wait 50 ms
+            press(key.One)
+            release(key.One)
+        end if
+    //--End ACTION menu commands
+
+
+    //--Begin COMBAT MODE menu commands
+        if said("stealth",6) or said("silent",6) then
+               press(key.Seven)
+            release(key.Seven)
+            wait 50 ms
+            press(key.One)
+            release(key.One)
+        end if
+
+        if said("danger",6) or said("get ready",6) or said("get set to engage",6) then
+            press(key.Seven)
+            release(key.Seven)
+            wait 50 ms
+            press(key.Two)
+            release(key.Two)
+        end if
+
+        if said("stay frosty",6) or said("stay sharp",6) then
+            press(key.Seven)
+            release(key.Seven)
+            wait 50 ms
+            press(key.Three)
+            release(key.Three)
+        end if
+
+        if said("safe",6) or said("at ease",6) or said("relax",6) then
+            press(key.Seven)
+            release(key.Seven)
+            wait 50 ms
+            press(key.Four)
+            release(key.Four)
+        end if
+
+        if said("stand up",6) or said("on your feet",6) then
+            press(key.Seven)
+            release(key.Seven)
+            wait 50 ms
+            press(key.Six)
+            release(key.Six)
+        end if
+
+        if said("stay crouched",6) or said("stay low",6) then
+            press(key.Seven)
+            release(key.Seven)
+            wait 50 ms
+            press(key.Seven)
+            release(key.Seven)
+        end if
+
+        if said("go prone",6) or said("hit the dirt",6) or said("get down",6) then
+            press(key.Seven)
+            release(key.Seven)
+            wait 50 ms
+            press(key.Eight)
+            release(key.Eight)
+        end if
+
+        if said("copy my stance",6) or said("copy stance",6) then
+            press(key.Seven)
+            release(key.Seven)
+            wait 50 ms
+            press(key.Nine)
+            release(key.Nine)
+        end if
+    //--End COMBAT MODE menu commands
+
+
+    //--Begin FORMATION commands
+        if said("formation column",6) or said("form column",6) then
+            press(key.Eight)
+            release(key.Eight)
+            wait 50 ms
+            press(key.One)
+            release(key.One)
+        end if
+
+        if said("formation staggered column",6) or said("form staggered column",6)  then
+            press(key.Eight)
+            release(key.Eight)
+            wait 50 ms
+            press(key.Two)
+            release(key.Two)
+        end if
+
+        if said("formation wedge",6) or said("form wedge",6) then
+            press(key.Eight)
+            release(key.Eight)
+            wait 50 ms
+            press(key.Three)
+            release(key.Three)
+        end if
+
+        if said("formation echelon left",6) or said("form echelon left",6) then
+            press(key.Eight)
+            release(key.Eight)
+            wait 50 ms
+            press(key.Four)
+            release(key.Four)
+        end if
+
+        if said("formation echelon right",6) or said("form echelon right",6) then
+            press(key.Eight)
+            release(key.Eight)
+            wait 50 ms
+            press(key.Five)
+            release(key.Five)
+        end if
+
+        if said("formation V",6) or said("form V",6) then
+            press(key.Eight)
+            release(key.Eight)
+            wait 50 ms
+            press(key.Six)
+            release(key.Six)
+        end if
+
+        if said("formation line",6) or said("form line",6) then
+            press(key.Eight)
+            release(key.Eight)
+            wait 50 ms
+            press(key.Seven)
+            release(key.Seven)
+        end if
+
+        if said("form compact column",6) or said("formation compact column",6) then
+            press(key.Eight)
+            release(key.Eight)
+            wait 50 ms
+            press(key.Eight)
+            release(key.Eight)
+        end if
+
+        if said("formation diamond",6) or said("form diamond",6) then
+            press(key.Eight)
+            release(key.Eight)
+            wait 50 ms
+            press(key.Nine)
+            release(key.Nine)
+        end if
+    //--End FORMATION commands
+
+
+    //--Begin Watch Direction
+        if said("watch north",6) then
+            press(key.Three)
+            release(key.Three)
+            wait 50 ms
+            press(key.Eight)
+            release(key.Eight)
+            wait 50 ms
+            press(key.One)
+            release(key.One)
+        end if
+
+        if said("watch north east",6) then
+            press(key.Three)
+            release(key.Three)
+            wait 50 ms
+            press(key.Eight)
+            release(key.Eight)
+            wait 50 ms
+            press(key.Two)
+            release(key.Two)
+        end if
+
+        if said("watch east",6) then
+            press(key.Three)
+            release(key.Three)
+            wait 50 ms
+            press(key.Eight)
+            release(key.Eight)
+            wait 50 ms
+            press(key.Three)
+            release(key.Three)
+        end if
+
+        if said("watch south east",6) then
+            press(key.Three)
+            release(key.Three)
+            wait 50 ms
+            press(key.Eight)
+            release(key.Eight)
+            wait 50 ms
+            press(key.Four)
+            release(key.Four)
+        end if
+
+        if said("watch south",6) then
+            press(key.Three)
+            release(key.Three)
+            wait 50 ms
+            press(key.Eight)
+            release(key.Eight)
+            wait 50 ms
+            press(key.Five)
+            release(key.Five)
+        end if
+
+        if said("watch south west",6) then
+            press(key.Three)
+            release(key.Three)
+            wait 50 ms
+            press(key.Eight)
+            release(key.Eight)
+            wait 50 ms
+            press(key.Six)
+            release(key.Six)
+        end if
+
+        if said("watch west",6) then
+            press(key.Three)
+            release(key.Three)
+            wait 50 ms
+            press(key.Eight)
+            release(key.Eight)
+            wait 50 ms
+            press(key.Seven)
+            release(key.Seven)
+        end if
+
+        if said("watch north west",6) then
+            press(key.Three)
+            release(key.Three)
+            wait 50 ms
+            press(key.Eight)
+            release(key.Eight)
+            wait 50 ms
+            press(key.Eight)
+            release(key.Eight)
+        end if
+    //--End Watch Direction
+
+//    ----------- Script end -----------------
