@@ -7,8 +7,7 @@
                                                                                                       -Kiiski<br />
 <br />
 #ALL AVAILABLE COMMANDS  <br />
-                                         <br />
-                                         <br />
+
  #Unit selection:                         <br />
                                          <br />
     "<number>" or "man <number>"            Select soldier <number 1-10>                            <br />
