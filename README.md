@@ -1,6 +1,6 @@
 
 
-Script is heavily modified version of asuseroakos script found from here: [url]http:tinyurl.com/arma3glovepiebasic[/url]
+Script is heavily modified version of asuseroakos script found from here: [http:tinyurl.com/arma3glovepiebasic](http:tinyurl.com/arma3glovepiebasic)
 Most important change is in the if condition structure that allows much smaller file size.
 Original script has almost the same functionality and is bigger by almost 3000 rows.
 
